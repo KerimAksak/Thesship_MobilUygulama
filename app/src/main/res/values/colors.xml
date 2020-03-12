@@ -3,4 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="siyah">#04060F</color>
+    <color name="genel_ton_bg">#282726</color>
+    <color name="text_color">#D4DCA9</color>
+    <color name="yazi_vurgusu">#D8D583</color>
+    <color name="red_dikkatYazisi">#FA163F</color>
+    <color name="white">#FFFFFF</color>
+
+
 </resources>
