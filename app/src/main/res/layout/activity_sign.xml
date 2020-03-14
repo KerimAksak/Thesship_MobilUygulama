@@ -6,13 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".SignActivity">
 
+    <TextView
+        android:id="@+id/tv_kayitOl2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="6dp"
+
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/bold"
+        android:text="Giriş Yap."
+        android:textColor="@color/red_dikkatYazisi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/light"
+        android:text="Kayıtlı hesabın mı var?"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
     <EditText
         android:id="@+id/et_Email"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginEnd="85dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="E-Posta"
@@ -20,7 +51,7 @@
         android:textColor="@color/siyah"
         android:textColorHint="@color/siyah"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome3" />
 
