@@ -38,7 +38,7 @@
 
     <TextView
         android:id="@+id/tv_welcome2"
-        android:layout_width="wrap_content"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
 
         android:fontFamily="@font/black"
@@ -51,24 +51,23 @@
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.127" />
 
 
     <EditText
         android:id="@+id/et_Email"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="85dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/input_field"
         android:ems="10"
         android:hint="E-Posta"
         android:inputType="textEmailAddress"
-        android:textColorHint="@color/siyah"
         android:textColor="@color/siyah"
+        android:textColorHint="@color/siyah"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome2" />
 
@@ -86,7 +85,7 @@
         android:textColor="@color/siyah"
         android:textColorHint="@color/siyah"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Email" />
 
@@ -100,6 +99,7 @@
         android:background="@drawable/button"
         android:text="Giriş Yap"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Parola" />
 

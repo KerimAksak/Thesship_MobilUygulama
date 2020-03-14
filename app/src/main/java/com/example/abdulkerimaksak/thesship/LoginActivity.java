@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    //Class
     private void initialWork() {
         etEmail = (EditText) findViewById(R.id.et_Email);
         etParola = (EditText) findViewById(R.id.et_Parola);

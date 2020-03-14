@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Class
     private void initialWork() {
         btnGirisYap = (Button) findViewById(R.id.btn_girisYap);
         tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         tvKayitOl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(),SignActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
                 //finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
