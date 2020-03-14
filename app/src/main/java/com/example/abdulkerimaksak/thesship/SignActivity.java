@@ -34,8 +34,8 @@ public class SignActivity extends AppCompatActivity {
 
     //Class
     private void initialWork() {
-        et_eposta = (EditText) findViewById(R.id.et_Email);
-        et_parola = (EditText) findViewById(R.id.et_Parola);
+        et_eposta = (EditText) findViewById(R.id.et_EmailSign);
+        et_parola = (EditText) findViewById(R.id.et_ParolaSign);
         btn_kayitOl = (Button) findViewById(R.id.btn_kayitOl);
         iv_geriDonus = (ImageView) findViewById(R.id.iv_geriDonus);
     }

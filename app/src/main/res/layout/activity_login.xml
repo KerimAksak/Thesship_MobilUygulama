@@ -38,8 +38,8 @@
 
     <TextView
         android:id="@+id/tv_welcome2"
-        android:layout_width="356dp"
-        android:layout_height="wrap_content"
+        android:layout_width="364dp"
+        android:layout_height="95dp"
 
         android:fontFamily="@font/black"
         android:text="THESSHIP"
@@ -48,14 +48,14 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127" />
+        app:layout_constraintVertical_bias="0.141" />
 
 
     <EditText
-        android:id="@+id/et_Email"
+        android:id="@+id/et_EmailLogin"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome2" />
 
     <EditText
-        android:id="@+id/et_Parola"
+        android:id="@+id/et_ParolaLogin"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
@@ -87,10 +87,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Email" />
+        app:layout_constraintTop_toBottomOf="@+id/et_EmailLogin" />
 
     <Button
-        android:id="@+id/btn_girisYap"
+        android:id="@+id/btn_girisYapLogin"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="129dp"
@@ -101,7 +101,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Parola" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ParolaLogin" />
 
     <ImageView
         android:id="@+id/iv_geriDonus"

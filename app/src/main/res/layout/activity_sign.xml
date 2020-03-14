@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.977" />
 
     <EditText
-        android:id="@+id/et_Email"
+        android:id="@+id/et_EmailSign"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome3" />
 
     <EditText
-        android:id="@+id/et_Parola"
+        android:id="@+id/et_ParolaSign"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginStart="84dp"
@@ -71,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Email" />
+        app:layout_constraintTop_toBottomOf="@+id/et_EmailSign" />
 
     <Button
         android:id="@+id/btn_kayitOl"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Parola" />
+        app:layout_constraintTop_toBottomOf="@+id/et_ParolaSign" />
 
     <ImageView
         android:id="@+id/iv_geriDonus"

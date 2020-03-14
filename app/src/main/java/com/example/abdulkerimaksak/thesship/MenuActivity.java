@@ -15,10 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_SIGNUP = 0;
     ListView listView;
+    final List<denemeVeri> users = new ArrayList<denemeVeri>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -59,7 +63,11 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void exqListener() {
-    }
+        users.add(new denemeVeri("deneme baslik", "deneme icerik", "deneme tarih", "deneme saat", "deneme isim"));
+        CustomAdapter adapter = new CustomAdapter(this, users);
+        listView.setAdapter(adapter);
+
+        }
 
 
     @Override

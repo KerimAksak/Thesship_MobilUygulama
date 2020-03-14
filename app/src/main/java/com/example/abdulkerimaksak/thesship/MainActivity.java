@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
-    Button btnGirisYap;
+    Button btnGirisYapMain,button;
     TextView tvKayitOl;
 
     @Override
@@ -17,24 +17,50 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initialWork();
-        exqListener();
 
-    }
-
-    //Class
-    private void initialWork() {
-        btnGirisYap = (Button) findViewById(R.id.btn_girisYap);
+        btnGirisYapMain = (Button) findViewById(R.id.btn_girisYapMain);
         tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
-    }
+        button = (Button) findViewById(R.id.button);
 
-    private void exqListener() {
+        //initialWorkMain();
+       // exqListenerMain();
 
-        btnGirisYap.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
                 startActivityForResult(intent, REQUEST_SIGNUP);
+                finish();
+            }
+        });
+
+        btnGirisYapMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+                finish();
+                overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
+            }
+        });
+
+    }
+
+    //Class
+    /*
+    private void initialWorkMain() {
+        btnGirisYapMain = (Button) findViewById(R.id.btn_girisYapMain);
+        tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
+    }
+
+    private void exqListenerMain() {
+
+        btnGirisYapMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);
+                finish();
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
             }
         });
@@ -49,5 +75,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
+*/
 }

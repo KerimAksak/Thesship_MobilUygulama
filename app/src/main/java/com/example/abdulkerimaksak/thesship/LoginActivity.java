@@ -20,39 +20,63 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
-    EditText etEmail,etParola;
-    Button btnGirisYap;
-    ImageView ivGeriDon;
-    TextView tvKayitOl;
-    ShredPref shredPref;
+    private EditText etEmail,etParola;
+    private Button btnGirisYapLogin;
+    private ImageView ivGeriDon;
+    private TextView tvKayitOl;
+    private ShredPref shredPref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        initialWork();
-        exqListener();
+        btnGirisYapLogin = (Button) findViewById(R.id.btn_girisYapLogin);
+        initialWorkLogin();
+        exqListenerLogin();
 
+        btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String getEmail = etEmail.getText().toString();//Değişkenler onClick fonksiyonunun içinde olmalı!
+                String getParola = etParola.getText().toString();
+                try{
+                    if(etEmail.getText().toString().length() > 0 && etParola.getText().toString().length() > 0)
+                    {
+                        Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                        startActivityForResult(intent, REQUEST_SIGNUP);//requestCode nedir? 2. parametre..
+                    }else{
+                        Toast.makeText(LoginActivity.this,"Alanlar boş bırakılamaz!", Toast.LENGTH_LONG).show();
+                    }
+
+                }catch(Exception e)
+                {
+                    Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     //Class
-    private void initialWork() {
-        etEmail = (EditText) findViewById(R.id.et_Email);
-        etParola = (EditText) findViewById(R.id.et_Parola);
-        btnGirisYap = (Button) findViewById(R.id.btn_girisYap);
+    private void initialWorkLogin() {
+        etEmail = (EditText) findViewById(R.id.et_EmailLogin);
+        etParola = (EditText) findViewById(R.id.et_ParolaLogin);
+
         ivGeriDon = (ImageView) findViewById(R.id.iv_geriDonus);
         tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
         shredPref = new ShredPref(getApplicationContext());
     }
 
-    private void exqListener() {
-        btnGirisYap.setOnClickListener(new View.OnClickListener() {
-            String getEmail = etEmail.getText().toString();
-            String getParola = etParola.getText().toString();
+    private void exqListenerLogin() {
+/*
+        btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+                String getEmail = etEmail.getText().toString();//Değişkenler onClick fonksiyonunun içinde olmalı!
+                String getParola = etParola.getText().toString();
                 try{
-                    if(getEmail.length() > 0 && getParola.length() >0)
+                    if(etEmail.getText().toString().length() > 0 && etParola.getText().toString().length() > 0)
                     {
                         webservisArkaplan webservisArkaplan = new webservisArkaplan();
                         webservisArkaplan.setMethod("user_validate");
@@ -69,6 +93,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+*/
         tvKayitOl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
