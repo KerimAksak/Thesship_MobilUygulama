@@ -13,22 +13,22 @@ import java.util.List;
 
 public class CustomAdapter extends BaseAdapter {
     private LayoutInflater userInflater;
-    private List<denemeVeri> userList;
+    private List<Ilan> ilanList;
 
-    public CustomAdapter(Activity activity, List<denemeVeri> userList) {
+    public CustomAdapter(Activity activity, List<Ilan> userList) {
         userInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        this.userList = userList;
+        this.ilanList = ilanList;
     }
 
     @Override
     public int getCount() {
-        return userList.size();
+        return ilanList.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return userList.get(i);
+        return ilanList.get(i);
     }
 
     @Override
@@ -47,13 +47,13 @@ public class CustomAdapter extends BaseAdapter {
         TextView tv_saat = (TextView) lineView.findViewById(R.id.tv_saat);
         TextView tv_isim = (TextView) lineView.findViewById(R.id.tv_isim);
 
-        denemeVeri denemeVeri = userList.get(i);
-        tv_baslik.setText(denemeVeri.getBaslik());
-        tv_icerik.setText(denemeVeri.getIcerik());
-        tv_tarih.setText(denemeVeri.getTarih());
-        tv_saat.setText(denemeVeri.getSaat());
-        tv_isim.setText(denemeVeri.getIsim());
-        im_avatar.setImageResource(R.drawable.back);
+        Ilan ilan = ilanList.get(i);
+        tv_baslik.setText(ilan.getIlan_baslik());
+        tv_icerik.setText(ilan.getIlan_icerik());
+        tv_tarih.setText(ilan.getIlan_tarih());
+        tv_saat.setText(ilan.getIlan_saat());
+        tv_isim.setText(ilan.getUser_id());//buraya userName gelmesi lazım.
+        im_avatar.setImageResource(R.drawable.back);//userImage gelmesi lazım.
 
         return lineView;
     }

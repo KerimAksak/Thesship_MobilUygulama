@@ -17,13 +17,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initialWorkMain();
+        exqListenerMain();
+    }
 
+    //Class
+    private void initialWorkMain() {
+        btnGirisYapMain = (Button) findViewById(R.id.btn_girisYapMain);
+        tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
         btnGirisYapMain = (Button) findViewById(R.id.btn_girisYapMain);
         tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
         button = (Button) findViewById(R.id.button);
+    }
 
-        //initialWorkMain();
-       // exqListenerMain();
+    private void exqListenerMain() {
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,17 +50,6 @@ public class MainActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
             }
         });
-
-    }
-
-    //Class
-    /*
-    private void initialWorkMain() {
-        btnGirisYapMain = (Button) findViewById(R.id.btn_girisYapMain);
-        tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
-    }
-
-    private void exqListenerMain() {
 
         btnGirisYapMain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,5 +71,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-*/
+
 }

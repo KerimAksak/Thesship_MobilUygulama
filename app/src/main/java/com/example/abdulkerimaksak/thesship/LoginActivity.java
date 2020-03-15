@@ -30,9 +30,22 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnGirisYapLogin = (Button) findViewById(R.id.btn_girisYapLogin);
         initialWorkLogin();
         exqListenerLogin();
+
+    }
+
+    //Class
+    private void initialWorkLogin() {
+        etEmail = (EditText) findViewById(R.id.et_EmailLogin);
+        etParola = (EditText) findViewById(R.id.et_ParolaLogin);
+        btnGirisYapLogin = (Button) findViewById(R.id.btn_girisYapLogin);
+        ivGeriDon = (ImageView) findViewById(R.id.iv_geriDonus);
+        tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
+        shredPref = new ShredPref(getApplicationContext());
+    }
+
+    private void exqListenerLogin() {
 
         btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -55,20 +68,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-    }
 
-    //Class
-    private void initialWorkLogin() {
-        etEmail = (EditText) findViewById(R.id.et_EmailLogin);
-        etParola = (EditText) findViewById(R.id.et_ParolaLogin);
-
-        ivGeriDon = (ImageView) findViewById(R.id.iv_geriDonus);
-        tvKayitOl = (TextView) findViewById(R.id.tv_kayitOl);
-        shredPref = new ShredPref(getApplicationContext());
-    }
-
-    private void exqListenerLogin() {
-/*
         btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -93,7 +93,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-*/
         tvKayitOl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

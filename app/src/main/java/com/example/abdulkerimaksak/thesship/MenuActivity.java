@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_SIGNUP = 0;
     ListView listView;
-    final List<denemeVeri> users = new ArrayList<denemeVeri>();
+    final List<Ilan> ilanlar = new ArrayList<Ilan>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -60,13 +60,13 @@ public class MenuActivity extends AppCompatActivity
 
     private void initialWork() {
         listView = (ListView) findViewById(R.id.listView);
+
     }
 
     private void exqListener() {
-        users.add(new denemeVeri("deneme baslik", "deneme icerik", "deneme tarih", "deneme saat", "deneme isim"));
-        CustomAdapter adapter = new CustomAdapter(this, users);
+        ilanlar.add(new Ilan("ilan ID", "user_id", "ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+        CustomAdapter adapter = new CustomAdapter(this, ilanlar);
         listView.setAdapter(adapter);
-
         }
 
 
