@@ -109,7 +109,9 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.profil) {
-            // Handle the camera action
+            Intent intent = new Intent(getApplicationContext(),ProfilActivity.class);
+            startActivityForResult(intent, REQUEST_SIGNUP);
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
         } else if (id == R.id.Ilanlarım) {
 
         } else if (id == R.id.kayitliIlan) {

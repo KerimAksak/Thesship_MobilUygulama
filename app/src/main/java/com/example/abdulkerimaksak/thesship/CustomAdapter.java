@@ -15,7 +15,7 @@ public class CustomAdapter extends BaseAdapter {
     private LayoutInflater userInflater;
     private List<Ilan> ilanList;
 
-    public CustomAdapter(Activity activity, List<Ilan> userList) {
+    public CustomAdapter(Activity activity, List<Ilan> ilanList) {
         userInflater = (LayoutInflater) activity.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
         this.ilanList = ilanList;
@@ -45,7 +45,7 @@ public class CustomAdapter extends BaseAdapter {
         TextView tv_icerik = (TextView) lineView.findViewById(R.id.tv_icerik);
         TextView tv_tarih = (TextView) lineView.findViewById(R.id.tv_tarih);
         TextView tv_saat = (TextView) lineView.findViewById(R.id.tv_saat);
-        TextView tv_isim = (TextView) lineView.findViewById(R.id.tv_isim);
+        TextView tv_isim = (TextView) lineView.findViewById(R.id.tv_isimProfil);
 
         Ilan ilan = ilanList.get(i);
         tv_baslik.setText(ilan.getIlan_baslik());

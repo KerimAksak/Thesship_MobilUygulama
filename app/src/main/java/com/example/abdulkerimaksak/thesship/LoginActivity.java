@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        /*
         btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -92,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
         tvKayitOl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
