@@ -1,6 +1,6 @@
 package com.example.abdulkerimaksak.thesship;
 
-public class Ilan {
+public class IlanAnasayfa {
     public String ilan_id;
     public String user_id;
     public String ilan_baslik;
@@ -8,7 +8,7 @@ public class Ilan {
     public String ilan_tarih;
     public String ilan_saat;
 
-    public Ilan(String ilan_id, String user_id, String ilan_baslik, String ilan_icerik, String ilan_tarih, String ilan_saat) {
+    public IlanAnasayfa(String ilan_id, String user_id, String ilan_baslik, String ilan_icerik, String ilan_tarih, String ilan_saat) {
         this.ilan_id = ilan_id;
         this.user_id = user_id;
         this.ilan_baslik = ilan_baslik;

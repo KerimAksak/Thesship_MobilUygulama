@@ -23,7 +23,8 @@
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.Dark" />
         <activity android:name=".IlanActivity" />
-        <activity android:name=".ProfilActivity"></activity>
+        <activity android:name=".ProfilActivity" />
+        <activity android:name=".IlanlarimActivity"></activity>
     </application>
 
 </manifest>

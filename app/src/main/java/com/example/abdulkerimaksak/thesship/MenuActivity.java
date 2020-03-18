@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_SIGNUP = 0;
     ListView listView;
-    final List<Ilan> ilanlar = new ArrayList<Ilan>();
+    final List<IlanAnasayfa> ilanlar = new ArrayList<IlanAnasayfa>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,8 +64,8 @@ public class MenuActivity extends AppCompatActivity
     }
 
     private void exqListener() {
-        ilanlar.add(new Ilan("ilan ID", "user_id", "ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
-        CustomAdapter adapter = new CustomAdapter(this, ilanlar);
+        ilanlar.add(new IlanAnasayfa("ilan ID", "user_id", "ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+        CustomAdapterAnasayfa adapter = new CustomAdapterAnasayfa(this, ilanlar);
         listView.setAdapter(adapter);
         }
 
@@ -113,7 +113,9 @@ public class MenuActivity extends AppCompatActivity
             startActivityForResult(intent, REQUEST_SIGNUP);
             overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
         } else if (id == R.id.Ilanlarım) {
-
+            Intent intent = new Intent(getApplicationContext(),IlanlarimActivity.class);
+            startActivityForResult(intent, REQUEST_SIGNUP);
+            overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);//Sağa geçiş animasyonu.
         } else if (id == R.id.kayitliIlan) {
 
         }

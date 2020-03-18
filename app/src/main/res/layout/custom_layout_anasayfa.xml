@@ -29,7 +29,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/tv_tarih"
+            app:layout_constraintEnd_toStartOf="@+id/tv_IlanIcerikFull"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_baslik" />
 
@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_tarih"
+            android:id="@+id/tv_IlanIcerikFull"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -75,7 +75,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="8dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/tv_tarih"
+            app:layout_constraintBottom_toTopOf="@+id/tv_IlanIcerikFull"
             app:layout_constraintStart_toEndOf="@+id/tv_isimProfil"
             app:layout_constraintTop_toTopOf="parent" />
 
