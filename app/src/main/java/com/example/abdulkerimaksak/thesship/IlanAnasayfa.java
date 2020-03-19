@@ -1,67 +1,29 @@
 package com.example.abdulkerimaksak.thesship;
 
+import android.graphics.Bitmap;
+
 public class IlanAnasayfa {
     public String ilan_id;
     public String user_id;
+    public String user_name;
     public String ilan_baslik;
     public String ilan_icerik;
     public String ilan_tarih;
     public String ilan_saat;
+    public Bitmap b;
+    public boolean bitmap_is_have = false;
 
-    public IlanAnasayfa(String ilan_id, String user_id, String ilan_baslik, String ilan_icerik, String ilan_tarih, String ilan_saat) {
+    public IlanAnasayfa(String ilan_id, String user_id, String user_name, String ilan_baslik, String ilan_icerik, String ilan_tarih, String ilan_saat) {
         this.ilan_id = ilan_id;
         this.user_id = user_id;
+        this.user_name = user_name;
         this.ilan_baslik = ilan_baslik;
         this.ilan_icerik = ilan_icerik;
         this.ilan_tarih = ilan_tarih;
         this.ilan_saat = ilan_saat;
     }
-
-    public String getIlan_id() {
-        return ilan_id;
-    }
-
-    public void setIlan_id(String ilan_id) {
-        this.ilan_id = ilan_id;
-    }
-
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getIlan_baslik() {
-        return ilan_baslik;
-    }
-
-    public void setIlan_baslik(String ilan_baslik) {
-        this.ilan_baslik = ilan_baslik;
-    }
-
-    public String getIlan_icerik() {
-        return ilan_icerik;
-    }
-
-    public void setIlan_icerik(String ilan_icerik) {
-        this.ilan_icerik = ilan_icerik;
-    }
-
-    public String getIlan_tarih() {
-        return ilan_tarih;
-    }
-
-    public void setIlan_tarih(String ilan_tarih) {
-        this.ilan_tarih = ilan_tarih;
-    }
-
-    public String getIlan_saat() {
-        return ilan_saat;
-    }
-
-    public void setIlan_saat(String ilan_saat) {
-        this.ilan_saat = ilan_saat;
+    public void setBitmap(Bitmap b){
+        this.b=b;
+        bitmap_is_have=true;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.abdulkerimaksak.thesship;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,12 +16,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BinaryHttpResponseHandler;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    ShredPref spa;
+    String id;
     private static final int REQUEST_SIGNUP = 0;
     ListView listView;
     final List<IlanAnasayfa> ilanlar = new ArrayList<IlanAnasayfa>();
@@ -60,14 +68,32 @@ public class MenuActivity extends AppCompatActivity
 
     private void initialWork() {
         listView = (ListView) findViewById(R.id.listView);
+        spa = new ShredPref(getApplicationContext());
+        spa.setNameSharedPref("loginSP");
+        id = spa.getString("ID","false");
 
+        //sunucu koptuğu için alttaki hariç wsa ları aç
+        //ilanlar.add(new IlanAnasayfa("ilan ID", "user_id","user_name","ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+
+/*
+        WSA wsa = new WSA();
+        wsa.setMethod("ilan_liste_user_veya_hepsi");
+        wsa.setParametreler("user_id=hepsi");
+        wsa.execute();
+*/
     }
 
     private void exqListener() {
-        ilanlar.add(new IlanAnasayfa("ilan ID", "user_id", "ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+        ilanlar.add(new IlanAnasayfa("ilan ID", "1", "user-name","ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+        ilanlar.add(new IlanAnasayfa("ilan ID", "2", "kerimaksak","ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+        ilanlar.add(new IlanAnasayfa("ilan ID", "3", "user-name","ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
         CustomAdapterAnasayfa adapter = new CustomAdapterAnasayfa(this, ilanlar);
         listView.setAdapter(adapter);
+        Toast.makeText(getApplicationContext(), "buraya girdi.", Toast.LENGTH_LONG).show();
+        for (int i =0;i<ilanlar.size();i++) {
+            onClickDosyaIndir(ilanlar.get(i).user_id, i);
         }
+    }
 
 
     @Override
@@ -124,4 +150,84 @@ public class MenuActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public class WSA extends jsonWebServis{
+
+        @Override
+        protected void onPostExecute(String s){
+            super.onPostExecute(s);
+
+            List<IlanAnasayfa> ilanList = Listele(IlanAnasayfa.class);
+            for (IlanAnasayfa i:ilanList) {
+                ilanlar.add(i);
+            }
+            ilanlar.add(new IlanAnasayfa("ilan ID", "1","user_name","ilan_baslik", "ilan_icerik", "ilan_tarih","ilan_saat"));
+            CustomAdapterAnasayfa adapter = new CustomAdapterAnasayfa(MenuActivity.this, ilanlar);
+            listView.setAdapter(adapter);
+            Toast.makeText(getApplicationContext(), "buraya girdi.", Toast.LENGTH_LONG).show();
+            for(int i=0; i< ilanlar.size();i++){
+                onClickDosyaIndir(ilanlar.get(i).user_id,i);
+            }
+        }
+    }
+
+    /*
+    public class ria extends AsyncTask <String, String, String>{
+        @Override
+        protected void onPreExecute(){
+
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+
+
+            return  "";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+
+        }
+
+
+
+
+
+    }*/
+
+    public void onClickDosyaIndir( final String id,final int i) {
+        String dosyaAdresi="http://thesship.izumobil.com/user_photos/";
+        dosyaAdresi = dosyaAdresi + id + "_1.jpg";
+        final AsyncHttpClient client = new AsyncHttpClient();
+
+        client.get(dosyaAdresi, new BinaryHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] fileData) {
+                try {
+
+                    Bitmap bmp1 = BitmapFactory.decodeByteArray(fileData,0,fileData.length);
+                    ilanlar.get(i).b=bmp1;
+                    ilanlar.get(i).bitmap_is_have=true;
+                    CustomAdapterAnasayfa adapter = new CustomAdapterAnasayfa(MenuActivity.this, ilanlar);
+                    listView.setAdapter(adapter);
+                    Toast.makeText(getApplicationContext(), "buraya da girdi.", Toast.LENGTH_LONG).show();
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] binaryData, Throwable error) {
+
+            }
+
+        });
+    }
+
+
+
 }

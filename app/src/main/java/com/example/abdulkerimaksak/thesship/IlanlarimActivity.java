@@ -2,6 +2,7 @@ package com.example.abdulkerimaksak.thesship;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,7 +17,11 @@ public class IlanlarimActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ilanlarim);
 
+        initialWork();
         exqListener();
+    }
+
+    private void initialWork() {
     }
 
     private void exqListener() {

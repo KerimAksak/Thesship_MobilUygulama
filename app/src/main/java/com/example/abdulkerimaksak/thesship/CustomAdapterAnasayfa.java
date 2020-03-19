@@ -48,13 +48,14 @@ public class CustomAdapterAnasayfa extends BaseAdapter {
         TextView tv_isim = (TextView) lineView.findViewById(R.id.tv_isimProfil);
 
         IlanAnasayfa ilan = ilanList.get(i);
-        tv_baslik.setText(ilan.getIlan_baslik());
-        tv_icerik.setText(ilan.getIlan_icerik());
-        tv_tarih.setText(ilan.getIlan_tarih());
-        tv_saat.setText(ilan.getIlan_saat());
-        tv_isim.setText(ilan.getUser_id());//buraya userName gelmesi lazım.
-        im_avatar.setImageResource(R.drawable.back);//userImage gelmesi lazım.
-
+        tv_baslik.setText(ilan.ilan_baslik);
+        tv_icerik.setText(ilan.ilan_icerik);
+        tv_tarih.setText(ilan.ilan_tarih);
+        tv_saat.setText(ilan.ilan_saat);
+        tv_isim.setText(ilan.user_name);//buraya userName gelmesi lazım.
+        if(ilan.bitmap_is_have) {
+            im_avatar.setImageBitmap(ilan.b);//userImage gelmesi lazım.
+        }
         return lineView;
     }
 }

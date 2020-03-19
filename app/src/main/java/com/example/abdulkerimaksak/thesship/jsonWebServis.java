@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class jsonWebServis extends AsyncTask <String, String, String>{
     public String webServiceAddress = "---------";//web servis url
@@ -48,6 +50,7 @@ public class jsonWebServis extends AsyncTask <String, String, String>{
     @Override
     protected void onPostExecute(String s) {
         //doingbackground işlemi bittikten sonra çalışır
+        /*
         try {
 
             Gson gson = new GsonBuilder()
@@ -59,6 +62,7 @@ public class jsonWebServis extends AsyncTask <String, String, String>{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        */
     }
 
     private String getStringFromInputStream(InputStream is) {
@@ -85,6 +89,37 @@ public class jsonWebServis extends AsyncTask <String, String, String>{
         }
         return sb.toString();
     }
+
+    public <T> List<T> Listele(Class<T> classOfT)   {
+        //public <T> void Listele( Class<T> classOfT)   {
+        List list = new ArrayList();
+        list.add(classOfT);
+
+        List<T> tList = new ArrayList<T>();
+
+        try {
+            //http://varmigelen.izumobil.com/altdeneme/varmigelenWS.asmx/jasonLogin?mail=muazdervent@gmail.com&pass=123
+
+
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
+            JsonParser jsonParser= new JsonParser();
+            JsonArray jsonArray = jsonParser.parse(json).getAsJsonArray();
+            for (int i = 0; i < jsonArray.size(); i++) {
+
+                tList.add(gson.fromJson(jsonArray.get(i), classOfT));
+            }
+
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tList;
+    }
+
+
 }
 
 

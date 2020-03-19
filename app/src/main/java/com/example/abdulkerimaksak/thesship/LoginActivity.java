@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         initialWorkLogin();
         exqListenerLogin();
 
+        //sunucu bağlantısı kesik olduğundan alttaki 2 satır eklendi.
+        Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+        startActivityForResult(intent, REQUEST_SIGNUP);
+
     }
 
     //Class
@@ -54,10 +58,13 @@ public class LoginActivity extends AppCompatActivity {
                 String getEmail = etEmail.getText().toString();//Değişkenler onClick fonksiyonunun içinde olmalı!
                 String getParola = etParola.getText().toString();
                 try{
-                    if(etEmail.getText().toString().length() > 0 && etParola.getText().toString().length() > 0)
+                    if(getEmail.length() > 0 && getParola.length() > 0)
                     {
-                        Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
-                        startActivityForResult(intent, REQUEST_SIGNUP);//requestCode nedir? 2. parametre..
+                        WSA wsa = new  WSA();
+                        wsa.setMethod("user_validate");
+                        wsa.setParametreler("mail="+getEmail+"&password="+getParola);
+                        wsa.execute();
+
                     }else{
                         Toast.makeText(LoginActivity.this,"Alanlar boş bırakılamaz!", Toast.LENGTH_LONG).show();
                     }
@@ -69,31 +76,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        btnGirisYapLogin.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                String getEmail = etEmail.getText().toString();//Değişkenler onClick fonksiyonunun içinde olmalı!
-                String getParola = etParola.getText().toString();
-                try{
-                    if(etEmail.getText().toString().length() > 0 && etParola.getText().toString().length() > 0)
-                    {
-                        webservisArkaplan webservisArkaplan = new webservisArkaplan();
-                        webservisArkaplan.setMethod("user_validate");
-                        webservisArkaplan.setParametreler("mail="+getEmail+"&password="+getParola);
-                        webservisArkaplan.execute();
-                    }else{
-                        Toast.makeText(LoginActivity.this,"Alanlar boş bırakılamaz!", Toast.LENGTH_LONG).show();
-                    }
-
-                }catch(Exception e)
-                {
-                    Toast.makeText(LoginActivity.this,e.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-*/
         tvKayitOl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,35 +98,24 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     //Web Servis
-    public class webservisArkaplan extends jsonWebServis{
+    public class WSA extends jsonWebServis{
 
         @Override
         protected void onPostExecute(String s){
             super.onPostExecute(s);
 
-            List<Dogrulama> userList = new ArrayList<Dogrulama>();
-            try {
-                Gson gson = new GsonBuilder()
-                        .setLenient()
-                        .create();
-                JsonParser jsonParser = new JsonParser();
-                JsonArray jsonArray = jsonParser.parse(json).getAsJsonArray();
-                for(int i=0;i<jsonArray.size();i++){
-                    Dogrulama deger = gson.fromJson(jsonArray.get(i),Dogrulama.class);
-                    userList.add(deger);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            //String gEmail = email.getText().toString();
-            //String gPassword = password.getText().toString();
-            //if(userList.get(0).userMail.equals(gEmail) && userList.get(0).userPassword.equals(gPassword)){
+            List<Dogrulama> userList = Listele(Dogrulama.class);
+
+
             if(userList.get(0).deger.equals("false")){
                 Toast.makeText(LoginActivity.this,"E-mail ya da şifre hatalı!", Toast.LENGTH_LONG).show();
             }else{
                 shredPref.setNameSharedPref("loginSP");
                 shredPref.putString("ID",userList.get(0).deger);
                 shredPref.commit();
+
+                Intent intent = new Intent(getApplicationContext(),MenuActivity.class);
+                startActivityForResult(intent, REQUEST_SIGNUP);//requestCode nedir? 2. parametre..
 
                 /*
                 //Toast.makeText(LoginActivity.this,"Giriş Başarılı", Toast.LENGTH_LONG).show();

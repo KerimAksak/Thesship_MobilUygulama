@@ -47,10 +47,10 @@ public class SignActivity extends AppCompatActivity {
                 try{
                     if(et_eposta.getText().toString().length() > 0 && et_parola.getText().toString().length() >0)
                     {
-                        SignActivity.webservisArkaplan webservisArkaplan = new SignActivity.webservisArkaplan();
-                        webservisArkaplan.setMethod("kayit_ol");
-                        webservisArkaplan.setParametreler("userMail="+et_eposta.getText().toString()+"&userPassword="+et_parola.getText().toString());
-                        webservisArkaplan.execute();
+                        SignActivity.WSA wsa = new SignActivity.WSA();
+                        wsa.setMethod("kayit_ol");
+                        wsa.setParametreler("userMail="+et_eposta.getText().toString()+"&userPassword="+et_parola.getText().toString());
+                        wsa.execute();
                     }else{
                         Toast.makeText(SignActivity.this,"Alanlar boş bırakılamaz!", Toast.LENGTH_LONG).show();
                     }
@@ -74,26 +74,14 @@ public class SignActivity extends AppCompatActivity {
     }
 
     //Web servis
-    public class webservisArkaplan extends jsonWebServis{
+    public class WSA extends jsonWebServis{
 
         @Override
         protected void onPostExecute(String s){
             super.onPostExecute(s);
 
-            List<Dogrulama> userList = new ArrayList<Dogrulama>();
-            try {
-                Gson gson = new GsonBuilder()
-                        .setLenient()
-                        .create();
-                JsonParser jsonParser = new JsonParser();
-                JsonArray jsonArray = jsonParser.parse(json).getAsJsonArray();
-                for(int i=0;i<jsonArray.size();i++){
-                    Dogrulama deger = gson.fromJson(jsonArray.get(i),Dogrulama.class);
-                    userList.add(deger);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+            List<Dogrulama> userList = Listele(Dogrulama.class);
+
 
             if(userList.get(0).deger.equals("true")){
                 Toast.makeText(SignActivity.this,"Kayıt Başarılı", Toast.LENGTH_LONG).show();
